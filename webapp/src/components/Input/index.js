@@ -13,10 +13,11 @@ const Input = (props) => {
     containerClass = classnames(style.container, style.containerSuccess)
   }
 
+  let inputClass = style.input
   let labelClass = style.label
-
   if (props.value) {
-    labelClass = classnames(style.label, style.focusedInput)
+    inputClass = classnames(style.input, style.focusedInput)
+    labelClass = classnames(style.label, style.focusedLabel)
   }
 
   return (
@@ -28,7 +29,7 @@ const Input = (props) => {
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}
-        className={style.input}
+        className={inputClass}
       />
 
       <label

@@ -61,10 +61,14 @@
   transition : border-color 100ms ease;
 }
 
-.focusedInput {
+.focusedLabel {
   top: -6px;
   font-size: 12px;
   color: #42aebb;
+}
+
+.focusedInput {
+  border-bottom: 2px solid #42aebb;
 }
 
 .secondaryText {
@@ -94,7 +98,7 @@
   caret-color: #d93e45;
 }
 
-.containerError > .focusedInput {
+.containerError > .focusedLabel {
   color: #d93e45;
 }
 
@@ -111,6 +115,6 @@
   caret-color: #00a249;
 }
 
-.containerSuccess > .focusedInput {
+.containerSuccess > .focusedLabel {
   color: #00a249;
 }
