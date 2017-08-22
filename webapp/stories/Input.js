@@ -42,6 +42,28 @@ storiesOf('Input/Text field boxes', module)
   ))
 
 
+class InputState extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { email: 'Leo' }
+  }
+
+  render () {
+    return (
+      <Input
+        name="email"
+        label="Digite seu email"
+        placeholder="nome@email.com"
+        value={this.state.email}
+        onChange={e => this.setState({ email: e.target.value })}
+        secondaryText="Texto secundario"
+        error={this.props.error}
+        success={this.props.success}
+      />
+    )
+  }
+}
+
 storiesOf('Input/Text field', module)
   .add('disabled', () => (
     <Input
@@ -52,30 +74,13 @@ storiesOf('Input/Text field', module)
     />
   ))
   .add('default', () => (
-    <Input
-      name="email"
-      label="Digite seu email"
-      placeholder="nome@email.com"
-      secondaryText="Texto secundário"
-    />
+    <InputState />
   ))
   .add('error', () => (
-    <Input
-      name="email"
-      label="Digite seu email"
-      placeholder="nome@email.com"
-      secondaryText="Text secundário"
-      error="Email no formato errado"
-    />
+    <InputState error="Email no formato errado" />
   ))
   .add('success', () => (
-    <Input
-      name="email"
-      label="Digite seu email"
-      placeholder="nome@email.com"
-      secondaryText="Texto secundário"
-      success="Gudi jobi lirou frendi!"
-    />
+    <InputState success="Good jobi lirou frendi" />
   ))
 
 storiesOf('Input/Password field', module)
