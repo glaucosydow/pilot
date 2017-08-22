@@ -38,16 +38,12 @@ const Input = (props) => {
         {props.label}
       </label>
 
-      { props.secondaryText && !props.success && !props.error &&
-        <p className={style.secondaryText}>{props.secondaryText}</p>
-      }
-
-      { props.success &&
-        <p className={style.secondaryText}>{props.success}</p>
-      }
-
-      { props.error &&
-        <p className={style.secondaryText}>{props.error}</p>
+      { (props.secondaryText || !props.success || !props.error) &&
+        <p
+          className={style.secondaryText}
+        >
+          {props.success || props.error || props.secondaryText}
+        </p>
       }
     </div>
   )
