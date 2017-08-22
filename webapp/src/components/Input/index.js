@@ -38,7 +38,7 @@ const Input = (props) => {
         {props.label}
       </label>
 
-      { (props.secondaryText || !props.success || !props.error) &&
+      { (props.secondaryText || props.success || props.error) &&
         <p
           className={style.secondaryText}
         >
