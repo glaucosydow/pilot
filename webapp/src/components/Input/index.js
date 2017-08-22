@@ -1,40 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 import style from './style.css'
 
-const Input = (props) => (
-  <div className={style.container}>
-    <input
-      id={props.name}
-      type={props.type}
-      disabled={props.disabled}
-      onChange={props.onChange}
-      placeholder={props.placeholder}
-      className={style.input}
-    />
+const Input = (props) => {
+  let containerClass = style.container
 
-    <span className={style.bar} />
-    <label
-      htmlFor={props.name}
-      className={style.label}
-    >
-      {props.label}
-    </label>
+  if (props.error) {
+    containerClass = classnames(style.container, style.containerError)
+  } else if (props.success) {
+    containerClass = classnames(style.container, style.containerSuccess)
+  }
 
-    { props.secondaryText && !props.success && !props.error &&
-      <p>{props.secondaryText}</p>
-    }
+  let labelClass = style.label
 
-    { props.success &&
-      <p>{props.success}</p>
-    }
+  if (props.value) {
+    labelClass = classnames(style.label, style.focusedInput)
+  }
 
-    { props.error &&
-      <p>{props.error}</p>
-    }
-  </div>
-)
+  return (
+    <div className={containerClass}>
+      <input
+        id={props.name}
+        type={props.type}
+        disabled={props.disabled}
+        value={props.value}
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        className={style.input}
+      />
+
+      <label
+        htmlFor={props.name}
+        className={labelClass}
+      >
+        {props.label}
+      </label>
+
+      { props.secondaryText && !props.success && !props.error &&
+        <p className={style.secondaryText}>{props.secondaryText}</p>
+      }
+
+      { props.success &&
+        <p className={style.secondaryText}>{props.success}</p>
+      }
+
+      { props.error &&
+        <p className={style.secondaryText}>{props.error}</p>
+      }
+    </div>
+  )
+}
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,

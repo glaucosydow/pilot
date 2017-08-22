@@ -7,13 +7,21 @@
 .input {
   display: block;
   border: none;
-  border-bottom: 1px solid #757575;
+  border-bottom: 2px solid rgba(59, 59, 59, 0.25);
+  border-radius: 3px;
   width: 218px;
   font-size: 14px;
+  padding-bottom: 8px;
+  padding-top: 16px;
 }
 
 .input:disabled {
-  border-bottom: 1px dashed #757575;
+  border-bottom: 1px dashed #c5c5c5;
+  background: none;
+}
+
+.input:disabled ~ .label {
+  color: #c5c5c5;
 }
 
 .input:focus {
@@ -35,43 +43,71 @@
   color: #999;
   font-size: 14px;
   position: absolute;
-  top: -8px;
+  top: 20px;
   pointer-events: none;
   transition: 0.1s ease all;
 }
 
 .input:focus ~ .label {
-  top: -20px;
+  top: -6px;
   font-size: 12px;
   color: #42aebb;
 }
 
-.bar {
-  position: relative;
-  display: block;
+.input:focus {
+  border-bottom: 2px solid #42aebb;
+  border-radius: 3px;
+  transition : border-color 100ms ease;
+}
+
+.focusedInput {
+  top: -6px;
+  font-size: 12px;
+  color: #42aebb;
+}
+
+.secondaryText {
   width: 218px;
+  height: 9px;
+  font-size: 12px;
+  text-align: left;
+  color: #8e8e8e;
+  position: relative;
+  top: -7px;
 }
 
-.bar:before,
-.bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  position: absolute;
-  bottom: 1px;
-  background: #42aebb;
-  transition: 0.1s ease all;
+.input:disabled ~ .secondaryText {
+  color: #c5c5c5;
 }
 
-.bar:before {
-  left: 50%;
+.containerError > .secondaryText {
+  color: #d93e45;
 }
 
-.bar:after {
-  right: 50%;
+.containerError > .input:focus ~ .label {
+  color: #d93e45;
 }
 
-.input:focus ~ .bar:before,
-.input:focus ~ .bar:after {
-  width:50%;
+.containerError > .input {
+  border-bottom: 2px solid #d93e45;
+}
+
+.containerError > .focusedInput {
+  color: #d93e45;
+}
+
+.containerSuccess > .secondaryText {
+  color: #00a249;
+}
+
+.containerSuccess > .input:focus ~ .label {
+  color: #00a249;
+}
+
+.containerSuccess > .input {
+  border-bottom: 2px solid #00a249;
+}
+
+.containerSuccess > .focusedInput {
+  color: #00a249;
 }
