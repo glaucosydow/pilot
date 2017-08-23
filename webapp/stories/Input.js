@@ -22,7 +22,7 @@ storiesOf('Input/Text field boxes', module)
     <InputState boxes type="text" error="Tá pegando fogo bixo" />
   ))
   .add('success', () => (
-      <InputState boxes type="text" success="Oloco meu" />
+    <InputState boxes type="text" success="Oloco meu" />
   ))
 
 
@@ -70,6 +70,20 @@ storiesOf('Input/Text field', module)
   ))
 
 storiesOf('Input/Password field', module)
+  .add('disabled', () => (
+    <Input
+      type="password"
+      name="pass"
+      label="Digite sua senha"
+      disabled
+    />
+  ))
   .add('default', () => (
     <InputState type="password" />
+  ))
+  .add('error', () => (
+    <InputState type="password" error="Digite mais caracteres" />
+  ))
+  .add('success', () => (
+    <InputState type="password" success="Boa rapá" />
   ))
