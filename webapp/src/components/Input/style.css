@@ -1,5 +1,7 @@
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
+  font-family: 'Uni Neue';
+  letter-spacing: 0.05em;
 }
 
 .container {
@@ -124,15 +126,15 @@
 .containerBoxes > .label {
   color: #8e8e8e;
   padding-left: 16px;
-  top: 16px;
+  top: 12px;
 }
 
 .containerBoxes > .input:focus ~ .label {
-  top: 6px;
+  top: 4px;
 }
 
 .containerBoxes > .focusedLabel {
-  top: 6px;
+  top: 4px;
 }
 
 .containerBoxes > .input:focus::placeholder {
