@@ -23,6 +23,7 @@ class Input extends React.Component {
 
   render () {
     const containerClass = classnames(style.container, {
+      [style.containerBoxes]: this.props.boxes,
       [style.containerError]: this.props.error,
       [style.containerSuccess]: this.props.success,
     })
@@ -83,15 +84,15 @@ class Input extends React.Component {
 
 Input.propTypes = {
   name: PropTypes.string.isRequired,
-  type: PropTypes.string,
   label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
   placeholder: PropTypes.string,
   boxes: PropTypes.bool,
   secondaryText: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   success: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
 }
 
 Input.defaultProps = {
