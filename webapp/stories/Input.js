@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
@@ -53,6 +54,7 @@ class InputState extends React.Component {
       <Input
         name="email"
         label="Digite seu email"
+        type={this.props.type}
         placeholder="nome@email.com"
         value={this.state.email}
         onChange={e => this.setState({ email: e.target.value })}
@@ -74,22 +76,16 @@ storiesOf('Input/Text field', module)
     />
   ))
   .add('default', () => (
-    <InputState />
+    <InputState type="text" />
   ))
   .add('error', () => (
-    <InputState error="Email no formato errado" />
+    <InputState type="text" error="Email no formato errado" />
   ))
   .add('success', () => (
-    <InputState success="Good jobi lirou frendi" />
+    <InputState type="text" success="Good jobi lirou frendi" />
   ))
 
 storiesOf('Input/Password field', module)
   .add('default', () => (
-    <Input
-      name="pass"
-      type="password"
-      label="Digite sua senha"
-      placeholder="kakaka"
-      secondaryText="Mínimo de 12 caracteres"
-    />
+    <InputState type="password" />
   ))

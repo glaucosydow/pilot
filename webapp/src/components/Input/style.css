@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box
+}
+
 .container {
   margin-top: 50px;
   position: relative;
@@ -69,6 +73,26 @@
 
 .focusedInput {
   border-bottom: 2px solid #42aebb;
+}
+
+.iconVisibility {
+  position: absolute;
+  bottom: 30px;
+  left: 190px;
+  display: none;
+  cursor: pointer;
+}
+
+.focusedInput ~ .iconVisibility {
+  display: block;
+}
+
+.input:focus ~ .iconVisibility {
+  display: block;
+}
+
+.inputPassword {
+  padding-right: 36px;
 }
 
 .secondaryText {

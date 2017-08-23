@@ -1,53 +1,84 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import MdVisibilityOff from 'react-icons/lib/md/visibility-off'
+import MdVisibility from 'react-icons/lib/md/visibility'
 
 import style from './style.css'
 
-const Input = (props) => {
-  let containerClass = style.container
+class Input extends React.Component {
+  constructor (props) {
+    super(props)
 
-  if (props.error) {
-    containerClass = classnames(style.container, style.containerError)
-  } else if (props.success) {
-    containerClass = classnames(style.container, style.containerSuccess)
+    this.state = {
+      type: '',
+    }
   }
 
-  let inputClass = style.input
-  let labelClass = style.label
-  if (props.value) {
-    inputClass = classnames(style.input, style.focusedInput)
-    labelClass = classnames(style.label, style.focusedLabel)
+  componentDidMount () {
+    this.setState({
+      type: this.props.type,
+    })
   }
 
-  return (
-    <div className={containerClass}>
-      <input
-        id={props.name}
-        type={props.type}
-        disabled={props.disabled}
-        value={props.value}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
-        className={inputClass}
-      />
+  render () {
+    const containerClass = classnames(style.container, {
+      [style.containerError]: this.props.error,
+      [style.containerSuccess]: this.props.success,
+    })
 
-      <label
-        htmlFor={props.name}
-        className={labelClass}
-      >
-        {props.label}
-      </label>
+    const labelClass = classnames(style.label, {
+      [style.focusedLabel]: this.props.value,
+    })
 
-      { (props.secondaryText || props.success || props.error) &&
-        <p
-          className={style.secondaryText}
+    const inputClass = classnames(style.input, {
+      [style.focusedInput]: this.props.value,
+      [style.inputPassword]: this.props.value && this.props.type === 'password',
+    })
+
+    return (
+      <div className={containerClass}>
+        <input
+          id={this.props.name}
+          type={this.state.type}
+          disabled={this.props.disabled}
+          value={this.props.value}
+          onChange={this.props.onChange}
+          placeholder={this.props.placeholder}
+          className={inputClass}
+        />
+
+        {this.props.type === 'password' && this.state.type === 'password' &&
+          <MdVisibility
+            className={style.iconVisibility}
+            onClick={() => this.setState({ type: 'text' })}
+          />
+        }
+
+        {this.props.type === 'password' && this.state.type === 'text' &&
+          <MdVisibilityOff
+            className={style.iconVisibility}
+            onClick={() => this.setState({ type: 'password' })}
+          />
+        }
+
+        <label
+          htmlFor={this.props.name}
+          className={labelClass}
         >
-          {props.success || props.error || props.secondaryText}
-        </p>
-      }
-    </div>
-  )
+          {this.props.label}
+        </label>
+
+        {(this.props.secondaryText || this.props.success || this.props.error) &&
+          <p
+            className={style.secondaryText}
+          >
+            {this.props.success || this.props.error || this.props.secondaryText}
+          </p>
+        }
+      </div>
+    )
+  }
 }
 
 Input.propTypes = {
