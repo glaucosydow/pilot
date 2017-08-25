@@ -41,7 +41,10 @@
 .option {
   color: #3b3b3b;
   height: 35px;
-  width: 100%;
+  width: 180px;
+  line-height: 35px;
+  margin-left: -40px;
+  padding-left: 16px;
 }
 
 .option:hover {
