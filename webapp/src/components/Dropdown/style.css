@@ -43,11 +43,14 @@
 
 .option {
   color: #3b3b3b;
-  height: 35px;
+  min-height: 35px;
   width: 180px;
-  line-height: 35px;
+  line-height: 15px;
   margin-left: -40px;
   padding-left: 16px;
+  white-space: pre-line;
+  padding-top: 10px;
+  padding-bottom: 8px;
 }
 
 .option:hover {
@@ -88,8 +91,15 @@
   width: 167px;
   font-size: 12px;
   text-align: left;
-  position: relative;
-  top: -10px;
+  position: absolute;
+  top: -27px;
+}
+
+.arrow {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0px;
+  left: 129px;
 }
 
 .containerDisabled .input {

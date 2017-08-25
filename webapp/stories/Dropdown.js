@@ -56,7 +56,7 @@ storiesOf('Dropdown', module)
     <DropdownState />
   ))
   .add('default with title', () => (
-    <DropdownState title="Selecione alguem" />
+    <DropdownState title="Selecione alguem maninho doido" />
   ))
   .add('error', () => (
     <DropdownState error="Pessoa feia!" />

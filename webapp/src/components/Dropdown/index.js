@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import onClickOutside from 'react-onclickoutside'
+import MdArrowDropDown from 'react-icons/lib/md/arrow-drop-down'
+import truncate from 'truncate'
 import shortid from 'shortid'
 
 import style from './style.css'
@@ -94,8 +96,15 @@ class Dropdown extends React.Component {
             className={style.input}
             onClick={this.openCloseDropdown}
           >
-            {this.findSelectedName() || this.props.title}
+            {truncate(this.findSelectedName() || this.props.title, 16)}
           </p>
+
+          <MdArrowDropDown
+            className={style.arrow}
+            color={this.props.disabled ? '#c5c5c5' : '#000'}
+            size={30}
+            onClick={this.openCloseDropdown}
+          />
 
           {(this.props.success || this.props.error) &&
             <p
