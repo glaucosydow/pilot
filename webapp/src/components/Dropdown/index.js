@@ -16,15 +16,9 @@ class Dropdown extends React.Component {
   }
 
   openCloseDropdown = () => {
-    if (this.state.isDropdownOpen) {
-      this.setState({
-        isDropdownOpen: false,
-      })
-    } else {
-      this.setState({
-        isDropdownOpen: true,
-      })
-    }
+    this.setState({
+      isDropdownOpen: !this.state.isDropdownOpen,
+    })
   }
 
   handleClickOutside = () => {
