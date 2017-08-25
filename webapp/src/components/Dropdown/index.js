@@ -16,8 +16,11 @@ class Dropdown extends React.Component {
   }
 
   openCloseDropdown = () => {
+    const { isDropdownOpen } = this.state
+    const newDropdownState = this.props.disabled ? isDropdownOpen : !isDropdownOpen
+
     this.setState({
-      isDropdownOpen: !this.state.isDropdownOpen,
+      isDropdownOpen: newDropdownState,
     })
   }
 
@@ -61,6 +64,12 @@ class Dropdown extends React.Component {
       [style.hide]: !this.state.isDropdownOpen,
     })
 
+    const containerClass = classnames(style.container, {
+      [style.containerDisabled]: this.props.disabled,
+      [style.containerError]: this.props.error,
+      [style.containerSuccess]: this.props.success,
+    })
+
     const dropdownOptions = this.props.options.map(({ value, name }) => {
       const optionClasses = classnames(style.option, {
         [style.isSelected]: this.props.value === value,
@@ -78,14 +87,24 @@ class Dropdown extends React.Component {
     })
 
     return (
-      <div className={style.container}>
+      <div className={containerClass}>
         <div className={style.buttonGroup}>
+          <label className={style.label}>{this.props.label}</label>
           <p
             className={style.input}
             onClick={this.openCloseDropdown}
           >
             {this.findSelectedName() || this.props.title}
           </p>
+
+          {(this.props.success || this.props.error) &&
+            <p
+              className={style.secondaryText}
+            >
+              {this.props.success || this.props.error}
+            </p>
+          }
+
           <ul className={dropdownMenuClasses}>
             <div>
               {this.props.title &&
@@ -113,8 +132,8 @@ Dropdown.propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
   title: PropTypes.string,
-  error: PropTypes.error,
-  success: PropTypes.success,
+  error: PropTypes.string,
+  success: PropTypes.string,
 }
 
 Dropdown.defaultProps = {

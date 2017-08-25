@@ -8,15 +8,18 @@
   border: 0;
   background: transparent;
   border-bottom: 2px solid rgba(59, 59, 59, 0.25);
+  border-radius: 3px;
   outline: 0;
   display: block;
   text-align: left;
   font-size: 14px;
   width: 167px;
+  height: 37px;
   cursor: pointer;
   color: #3b3b3b;
   text-decoration: none;
   opacity: 1;
+  line-height: 42px;
 }
 
 .buttonGroup {
@@ -26,7 +29,7 @@
 
 .dropdownMenu {
   position: absolute;
-  top: -1em;
+  top: -1.5em;
   right: 0;
   left: 0;
   width: 180px;
@@ -71,4 +74,54 @@
 
 .hide {
   display: none;
+}
+
+.label {
+  color: #8e8e8e;
+  font-size: 12px;
+  position: absolute;
+  top: -10px;
+}
+
+.secondaryText {
+  height: 12px;
+  width: 167px;
+  font-size: 12px;
+  text-align: left;
+  position: relative;
+  top: -10px;
+}
+
+.containerDisabled .input {
+  border-bottom: 1px dashed #c5c5c5;
+  color: #c5c5c5;
+  cursor: not-allowed;
+}
+
+.containerDisabled .label {
+  color: #c5c5c5;
+}
+
+.containerError .input {
+  border-bottom: 2px solid #d93e45;
+}
+
+.containerError .label {
+  color: #d93e45;
+}
+
+.containerError .secondaryText {
+  color: #d93e45;
+}
+
+.containerSuccess .input {
+  border-bottom: 2px solid #00a249;
+}
+
+.containerSuccess .label {
+  color: #00a249;
+}
+
+.containerSuccess .secondaryText {
+  color: #00a249;
 }
