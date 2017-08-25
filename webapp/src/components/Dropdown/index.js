@@ -13,14 +13,9 @@ class Dropdown extends React.Component {
     this.state = {
       isDropdownOpen: false,
     }
-
-    this.openCloseDropdown = this.openCloseDropdown.bind(this)
-    this.handleClickOutside = this.handleClickOutside.bind(this)
-    this.selectOption = this.selectOption.bind(this)
-    this.findSelectedName = this.findSelectedName.bind(this)
   }
 
-  openCloseDropdown () {
+  openCloseDropdown = () => {
     if (this.state.isDropdownOpen) {
       this.setState({
         isDropdownOpen: false,
@@ -32,7 +27,7 @@ class Dropdown extends React.Component {
     }
   }
 
-  handleClickOutside () {
+  handleClickOutside = () => {
     if (this.state.isDropdownOpen) {
       this.setState({
         isDropdownOpen: false,
@@ -40,7 +35,7 @@ class Dropdown extends React.Component {
     }
   }
 
-  selectOption (value) {
+  selectOption = (value) => {
     this.props.onChange(value)
 
     this.setState({
@@ -48,7 +43,7 @@ class Dropdown extends React.Component {
     })
   }
 
-  findSelectedName () {
+  findSelectedName = () => {
     if (!this.props.value && !this.props.title) {
       const firstOption = this.props.options[0]
       this.selectOption(firstOption.value)
@@ -99,11 +94,13 @@ class Dropdown extends React.Component {
           </p>
           <ul className={dropdownMenuClasses}>
             <div>
-              <li
-                className={classnames(style.option, style.disabledOption)}
-              >
-                {this.props.title}
-              </li>
+              {this.props.title &&
+                <li
+                  className={classnames(style.option, style.disabledOption)}
+                >
+                  {this.props.title}
+                </li>
+              }
               {dropdownOptions}
             </div>
           </ul>
