@@ -55,6 +55,7 @@
     "stylelint": "8.0.0",
     "stylelint-config-pagarme-react": "1.0.3",
     "sw-precache-webpack-plugin": "0.11.4",
+    "truncate": "^2.0.0",
     "url-loader": "0.5.9",
     "webpack": "3.5.1",
     "webpack-dev-server": "2.7.1",
