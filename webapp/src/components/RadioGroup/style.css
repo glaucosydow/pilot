@@ -6,6 +6,30 @@
   letter-spacing: 0.05em;
 }
 
+.containerDisabled > .radio {
+  cursor: not-allowed;
+}
+
+.containerDisabled .name {
+  color: #c5c5c5;
+}
+
+.containerDisabled .label {
+  color: #c5c5c5;
+}
+
+.containerDisabled .input:checked + .label:before {
+  border-color: #c5c5c5;
+}
+
+.containerDisabled .label:before {
+  border-color: #c5c5c5;
+}
+
+.containerDisabled .label:after {
+  background: #c5c5c5;
+}
+
 .radio {
 	display: inline-flex;
   flex-direction: column-reverse;

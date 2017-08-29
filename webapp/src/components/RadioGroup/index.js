@@ -1,19 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import shortid from 'shortid'
 
 import style from './style.css'
 
 const RadioGroup = (props) => {
-  const radioButtons = props.options.map(option => (
+  const containerClass = classnames(style.container, {
+    [style.containerDisabled]: props.disabled,
+  })
+
+  const radioButtons = props.options.map((option, index) => (
     <label className={style.radio}>
       <input
         type="radio"
         name={props.name}
         value={option.value}
-        checked={props.value === option.value}
+        checked={
+          (props.disabled && index === 0) ||
+          (props.value === option.value)
+        }
         onChange={props.onChange}
         className={style.input}
+        disabled={props.disabled}
       />
 
       <span
@@ -27,7 +36,7 @@ const RadioGroup = (props) => {
   ))
 
   return (
-    <div className={style.container}>
+    <div className={containerClass}>
       {radioButtons}
     </div>
   )
