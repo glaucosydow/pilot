@@ -11,18 +11,18 @@ storiesOf('Input/Text field boxes', module)
     <Input
       name="name"
       label="Digite seu nome"
-      boxes
+      boxed
       disabled
     />
   ))
   .add('default', () => (
-    <InputState boxes type="text" />
+    <InputState boxed type="text" />
   ))
   .add('error', () => (
-    <InputState boxes type="text" error="Tá pegando fogo bixo" />
+    <InputState boxed type="text" error="Tá pegando fogo bixo" />
   ))
   .add('success', () => (
-    <InputState boxes type="text" success="Oloco meu" />
+    <InputState boxed type="text" success="Oloco meu" />
   ))
 
 
@@ -40,9 +40,9 @@ class InputState extends React.Component {
         type={this.props.type}
         placeholder="nome@email.com"
         value={this.state.email}
-        boxes={this.props.boxes ? true : false}
+        boxed={this.props.boxed ? true : false}
         onChange={e => this.setState({ email: e.target.value })}
-        secondaryText={this.props.boxes ? '' : 'Texto secundario'}
+        hint={this.props.boxed ? '' : 'Texto secundario'}
         error={this.props.error}
         success={this.props.success}
       />
@@ -56,7 +56,7 @@ storiesOf('Input/Text field', module)
       name="email"
       label="Digite seu email"
       disabled
-      secondaryText="Texto secundário"
+      hint="Texto secundário"
     />
   ))
   .add('default', () => (

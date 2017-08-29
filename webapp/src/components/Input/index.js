@@ -23,7 +23,7 @@ class Input extends React.Component {
 
   render () {
     const containerClass = classnames(style.container, {
-      [style.containerBoxes]: this.props.boxes,
+      [style.containerBoxes]: this.props.boxed,
       [style.containerError]: this.props.error,
       [style.containerSuccess]: this.props.success,
     })
@@ -70,11 +70,11 @@ class Input extends React.Component {
           {this.props.label}
         </label>
 
-        {(this.props.secondaryText || this.props.success || this.props.error) &&
+        {(this.props.hint || this.props.success || this.props.error) &&
           <p
             className={style.secondaryText}
           >
-            {this.props.success || this.props.error || this.props.secondaryText}
+            {this.props.success || this.props.error || this.props.hint}
           </p>
         }
       </div>
@@ -88,8 +88,8 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  boxes: PropTypes.bool,
-  secondaryText: PropTypes.string,
+  boxed: PropTypes.bool,
+  hint: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   success: PropTypes.string,
@@ -97,9 +97,9 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: 'text',
-  boxes: false,
+  boxed: false,
   placeholder: '',
-  secondaryText: '',
+  hint: '',
   disabled: false,
   error: '',
   success: '',
