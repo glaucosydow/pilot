@@ -30,6 +30,10 @@
   background: #c5c5c5;
 }
 
+.containerError .name {
+  color: #d93e45;
+}
+
 .radio {
 	display: inline-flex;
   flex-direction: column-reverse;
@@ -79,7 +83,7 @@
   left: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid #42aebb;
+  border: 2px solid #8e8e8e;
 }
 
 .label:after {

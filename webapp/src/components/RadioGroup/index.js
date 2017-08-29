@@ -8,6 +8,7 @@ import style from './style.css'
 const RadioGroup = (props) => {
   const containerClass = classnames(style.container, {
     [style.containerDisabled]: props.disabled,
+    [style.containerError]: props.error,
   })
 
   const radioButtons = props.options.map((option, index) => (
