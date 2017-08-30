@@ -8,6 +8,12 @@ class RadioGroupState extends React.Component {
     this.state = { value: '' }
   }
 
+  componentDidMount () {
+    if (this.props.success) {
+      this.setState({ value: 'sofa' })
+    }
+  }
+
   render () {
     const options = [
       {

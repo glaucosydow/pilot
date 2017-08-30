@@ -34,6 +34,18 @@
   color: #d93e45;
 }
 
+.containerSuccess .input:checked + .label:before {
+  border-color: #00a249;
+}
+
+.containerSuccess .input:checked + .label:after {
+  background: #00a249;
+}
+
+.containerSuccess .input:checked ~ .name {
+  color: #00a249;
+}
+
 .radio {
 	display: inline-flex;
   flex-direction: column-reverse;

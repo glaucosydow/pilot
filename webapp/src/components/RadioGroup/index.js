@@ -5,42 +5,76 @@ import shortid from 'shortid'
 
 import style from './style.css'
 
-const RadioGroup = (props) => {
-  const containerClass = classnames(style.container, {
-    [style.containerDisabled]: props.disabled,
-    [style.containerError]: props.error,
-  })
+class RadioGroup extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { isSuccess: false }
+  }
 
-  const radioButtons = props.options.map((option, index) => (
-    <label className={style.radio}>
-      <input
-        type="radio"
-        name={props.name}
-        value={option.value}
-        checked={
-          (props.disabled && index === 0) ||
-          (props.value === option.value)
-        }
-        onChange={props.onChange}
-        className={style.input}
-        disabled={props.disabled}
-      />
+  componentDidMount () {
+    if (this.props.success) {
+      this.setState({ isSuccess: true })
+    } else {
+      this.setState({ isSuccess: false })
+    }
+  }
 
-      <span
-				className={style.label}
-      />
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.success !== this.props.success) {
+      if (nextProps.success) {
+        this.setState({ isSuccess: true })
+      } else {
+        this.setState({ isSuccess: false })
+      }
+    }
+  }
 
-      <span className={style.name}>
-			  {option.name}
-      </span>
-    </label>
-  ))
+  handleChange = (e) => {
+    if (this.state.isSuccess) {
+      this.setState({ isSuccess: false })
+    }
 
-  return (
-    <div className={containerClass}>
-      {radioButtons}
-    </div>
-  )
+    this.props.onChange(e)
+  }
+
+  render () {
+    const containerClass = classnames(style.container, {
+      [style.containerDisabled]: this.props.disabled,
+      [style.containerError]: this.props.error,
+      [style.containerSuccess]: this.state.isSuccess,
+    })
+
+    const radioButtons = this.props.options.map((option, index) => (
+      <label className={style.radio}>
+        <input
+          type="radio"
+          name={this.props.name}
+          value={option.value}
+          checked={
+            (this.props.disabled && index === 0) ||
+            (this.props.value === option.value)
+          }
+          onChange={this.handleChange}
+          className={style.input}
+          disabled={this.props.disabled}
+        />
+
+        <span
+          className={style.label}
+        />
+
+        <span className={style.name}>
+          {option.name}
+        </span>
+      </label>
+    ))
+
+    return (
+      <div className={containerClass}>
+        {radioButtons}
+      </div>
+    )
+  }
 }
 
 RadioGroup.propTypes = {
