@@ -5,5 +5,12 @@
   },
   "rules": {
     "react/jsx-filename-extension": 0
+  },
+  "globals": {
+    "it": true,
+    "expect": true,
+    "mount": true,
+    "describe": true,
+    "jest": true
   }
 }
