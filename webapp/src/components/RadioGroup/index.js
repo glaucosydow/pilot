@@ -72,6 +72,13 @@ class RadioGroup extends React.Component {
     return (
       <div className={containerClass}>
         {radioButtons}
+        {(this.state.isSuccess || this.props.error) &&
+          <p
+            className={style.secondaryText}
+          >
+            {this.props.success || this.props.error}
+          </p>
+        }
       </div>
     )
   }

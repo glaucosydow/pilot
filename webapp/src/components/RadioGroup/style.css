@@ -106,3 +106,18 @@
   transform: scale(0);
   background: #42aebb;
 }
+
+.secondaryText {
+  position: relative;
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+}
+
+.containerError .secondaryText {
+  color: #d93e45;
+}
+
+.containerSuccess .secondaryText {
+  color: #00a249;
+}
