@@ -15,9 +15,14 @@ class Dropdown extends React.Component {
     this.state = {
       isDropdownOpen: false,
     }
+
+    this.openCloseDropdown = this.openCloseDropdown.bind(this)
+    this.handleClickOutside = this.handleClickOutside.bind(this)
+    this.selectOption = this.selectOption.bind(this)
+    this.findSelectedName = this.findSelectedName.bind(this)
   }
 
-  openCloseDropdown = () => {
+  openCloseDropdown () {
     const { isDropdownOpen } = this.state
     const newDropdownState = this.props.disabled ? isDropdownOpen : !isDropdownOpen
 
@@ -26,7 +31,7 @@ class Dropdown extends React.Component {
     })
   }
 
-  handleClickOutside = () => {
+  handleClickOutside () {
     if (this.state.isDropdownOpen) {
       this.setState({
         isDropdownOpen: false,
@@ -34,7 +39,7 @@ class Dropdown extends React.Component {
     }
   }
 
-  selectOption = (value) => {
+  selectOption (value) {
     this.props.onChange(value)
 
     this.setState({
@@ -42,7 +47,7 @@ class Dropdown extends React.Component {
     })
   }
 
-  findSelectedName = () => {
+  findSelectedName () {
     if (!this.props.value && !this.props.title) {
       const firstOption = this.props.options[0]
       this.selectOption(firstOption.value)
@@ -81,9 +86,14 @@ class Dropdown extends React.Component {
         <li
           key={shortid.generate()}
           className={optionClasses}
-          onClick={() => this.selectOption(value)}
         >
-          {name}
+          <a
+            onClick={() => this.selectOption(value)}
+            role="button"
+            tabIndex={0}
+          >
+            {name}
+          </a>
         </li>
       )
     })
@@ -91,12 +101,23 @@ class Dropdown extends React.Component {
     return (
       <div className={containerClass}>
         <div className={style.buttonGroup}>
-          <label className={style.label}>{this.props.label}</label>
+          <label
+            htmlFor={this.props.name}
+            className={style.label}
+          >
+            {this.props.label}
+          </label>
+
           <p
             className={style.input}
-            onClick={this.openCloseDropdown}
           >
-            {truncate(this.findSelectedName() || this.props.title, 16)}
+            <a
+              onClick={this.openCloseDropdown}
+              role="button"
+              tabIndex={0}
+            >
+              {truncate(this.findSelectedName() || this.props.title, 16)}
+            </a>
           </p>
 
           <MdArrowDropDown
@@ -136,7 +157,7 @@ class Dropdown extends React.Component {
 Dropdown.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
   disabled: PropTypes.bool,

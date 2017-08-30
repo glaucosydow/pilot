@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import shortid from 'shortid'
 
 import style from './style.css'
 
@@ -9,9 +8,11 @@ class RadioGroup extends React.Component {
   constructor (props) {
     super(props)
     this.state = { isSuccess: false }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  componentDidMount () {
+  componentWillMount () {
     if (this.props.success) {
       this.setState({ isSuccess: true })
     } else {
@@ -29,7 +30,7 @@ class RadioGroup extends React.Component {
     }
   }
 
-  handleChange = (e) => {
+  handleChange (e) {
     if (this.state.isSuccess) {
       this.setState({ isSuccess: false })
     }
@@ -45,11 +46,12 @@ class RadioGroup extends React.Component {
     })
 
     const radioButtons = this.props.options.map((option, index) => (
-      <label className={style.radio}>
+      <label className={style.radio} htmlFor={option.value}>
         <input
           type="radio"
           name={this.props.name}
           value={option.value}
+          id={option.value}
           checked={
             (this.props.disabled && index === 0) ||
             (this.props.value === option.value)
@@ -85,13 +87,13 @@ class RadioGroup extends React.Component {
 }
 
 RadioGroup.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.string,
-  succes: PropTypes.string,
+  success: PropTypes.string,
 }
 
 RadioGroup.defaultProps = {

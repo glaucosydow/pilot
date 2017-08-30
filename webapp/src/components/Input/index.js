@@ -15,7 +15,7 @@ class Input extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentWillMount () {
     this.setState({
       type: this.props.type,
     })
@@ -86,6 +86,7 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
   boxed: PropTypes.bool,
