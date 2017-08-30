@@ -4,7 +4,6 @@ import classnames from 'classnames'
 import onClickOutside from 'react-onclickoutside'
 import MdArrowDropDown from 'react-icons/lib/md/arrow-drop-down'
 import truncate from 'truncate'
-import shortid from 'shortid'
 
 import style from './style.css'
 
@@ -24,7 +23,7 @@ class Dropdown extends React.Component {
 
   openCloseDropdown () {
     const { isDropdownOpen } = this.state
-    const newDropdownState = this.props.disabled ? isDropdownOpen : !isDropdownOpen
+    const newDropdownState = !isDropdownOpen
 
     this.setState({
       isDropdownOpen: newDropdownState,
@@ -84,7 +83,7 @@ class Dropdown extends React.Component {
 
       return (
         <li
-          key={shortid.generate()}
+          key={value}
           className={optionClasses}
         >
           <a
@@ -141,7 +140,7 @@ class Dropdown extends React.Component {
                 <li
                   className={classnames(style.option, style.disabledOption)}
                 >
-                  {this.props.title}
+                  <a>{this.props.title}</a>
                 </li>
               }
               {dropdownOptions}
@@ -152,7 +151,6 @@ class Dropdown extends React.Component {
     )
   }
 }
-
 
 Dropdown.propTypes = {
   name: PropTypes.string.isRequired,
