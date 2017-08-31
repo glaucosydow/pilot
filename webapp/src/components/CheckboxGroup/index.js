@@ -1,0 +1,79 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+class CheckboxGroup extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { values: new Set() }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  componentWillMount () {
+    if (this.props.values.length > 0) {
+      this.setState({ values: new Set(this.props.values) })
+    }
+  }
+
+  handleChange (e) {
+    const newValues = this.state.values
+
+    const { value } = e.target
+
+    if (this.state.values.has(value)) {
+      newValues.delete(value)
+    } else {
+      newValues.add(value)
+    }
+
+    this.setState({ values: newValues })
+    this.props.onChange(Array.from(newValues))
+  }
+
+  render () {
+    const checkboxes = this.props.options.map(({ value, name }) => (
+      <div key={value}>
+        <input
+          type="checkbox"
+          name={this.props.name}
+          value={value}
+          id={value}
+          checked={this.state.values.has(value)}
+          onChange={this.handleChange}
+          disabled={this.props.disabled}
+        />
+        <label htmlFor={value}>{name}</label>
+      </div>
+    ))
+
+    return (
+      <div>
+        {checkboxes}
+
+        {(this.props.success || this.props.error) &&
+          <p>
+            {this.props.success || this.props.error}
+          </p>
+        }
+      </div>
+    )
+  }
+}
+
+CheckboxGroup.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  values: PropTypes.arrayOf(PropTypes.string).isRequired,
+  disabled: PropTypes.bool,
+  error: PropTypes.string,
+  success: PropTypes.string,
+}
+
+CheckboxGroup.defaultProps = {
+  disabled: false,
+  error: '',
+  success: '',
+}
+
+export default CheckboxGroup
