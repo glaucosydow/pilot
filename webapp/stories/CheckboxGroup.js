@@ -12,15 +12,15 @@ class CheckboxGroupState extends React.Component {
   render () {
     const options = [
       {
-        name: 'Leo',
+        label: 'Leo',
         value: 'leo',
       },
       {
-        name: 'Nerone',
+        label: 'Nerone',
         value: 'nerone'
       },
       {
-        name: 'hi',
+        label: 'hi',
         value: 'hi',
       },
     ]

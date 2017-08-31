@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Checkbox from '../Checkbox'
 
 class CheckboxGroup extends React.Component {
   constructor (props) {
@@ -31,19 +32,16 @@ class CheckboxGroup extends React.Component {
   }
 
   render () {
-    const checkboxes = this.props.options.map(({ value, name }) => (
-      <div key={value}>
-        <input
-          type="checkbox"
-          name={this.props.name}
-          value={value}
-          id={value}
-          checked={this.state.values.has(value)}
-          onChange={this.handleChange}
-          disabled={this.props.disabled}
-        />
-        <label htmlFor={value}>{name}</label>
-      </div>
+    const checkboxes = this.props.options.map(({ value, label }) => (
+      <Checkbox
+        key={value}
+        name={this.props.name}
+        value={value}
+        label={label}
+        checked={this.state.values.has(value)}
+        onChange={this.handleChange}
+        disabled={this.props.disabled}
+      />
     ))
 
     return (
