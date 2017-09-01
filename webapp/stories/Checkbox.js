@@ -6,16 +6,14 @@ class CheckboxState extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = { value: '' }
+    this.state = { checked: false }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange (e) {
-    if (this.state.value) {
-      this.setState({ value: '' })
-    } else {
-      this.setState({ value: e.target.value })
-    }
+    this.setState({
+      checked: !this.state.checked,
+    })
   }
 
   render () {
@@ -25,14 +23,14 @@ class CheckboxState extends React.Component {
           name="pessoa"
           value="leo"
           label="Leonardo"
-          checked={this.state.value === 'leo'}
+          checked={this.state.checked}
           onChange={this.handleChange}
           disabled={this.props.disabled}
           error={this.props.error}
           success={this.props.success}
         />
 
-        <p>Selecionado: {this.state.value}</p>
+        <p>Selecionado: {this.state.checked.toString()}</p>
       </div>
     )
   }

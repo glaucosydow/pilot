@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { partial } from 'ramda'
 import Checkbox from '../Checkbox'
 
 class CheckboxGroup extends React.Component {
@@ -16,10 +17,8 @@ class CheckboxGroup extends React.Component {
     }
   }
 
-  handleChange (e) {
+  handleChange (value) {
     const newValues = this.state.values
-
-    const { value } = e.target
 
     if (this.state.values.has(value)) {
       newValues.delete(value)
@@ -39,7 +38,7 @@ class CheckboxGroup extends React.Component {
         value={value}
         label={label}
         checked={this.state.values.has(value)}
-        onChange={this.handleChange}
+        onChange={partial(this.handleChange, [value])}
         disabled={this.props.disabled}
       />
     ))
