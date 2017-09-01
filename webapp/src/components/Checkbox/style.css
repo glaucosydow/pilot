@@ -25,6 +25,14 @@
   cursor: pointer;
 }
 
+.disabled > .label:before {
+  border: 1px solid #cccccc;
+}
+
+.disabled > .label {
+  color: #c5c5c5;
+}
+
 .checkbox {
   outline: 0px;
   margin-right: 16px;

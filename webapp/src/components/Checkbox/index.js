@@ -5,13 +5,17 @@ import classnames from 'classnames'
 import style from './style.css'
 
 const Checkbox = (props) => {
+  const containerClass = classnames(style.container, {
+    [style.disabled]: props.disabled,
+  })
+
   const secondaryTextClass = classnames(style.secondaryText, {
     [style.error]: props.error,
     [style.success]: props.success,
   })
 
   return (
-    <div className={style.container}>
+    <div className={containerClass}>
       <input
         type="checkbox"
         name={props.name}
