@@ -1,26 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-const Checkbox = props => (
-  <div>
-    <input
-      type="checkbox"
-      name={props.name}
-      value={props.value}
-      id={props.value}
-      checked={props.checked}
-      onChange={props.onChange}
-      disabled={props.disabled}
-    />
-    <label htmlFor={props.value}>{props.label}</label>
+import style from './style.css'
 
-    {(props.success || props.error) &&
-      <p>
-        {props.success || props.error}
-      </p>
-    }
-  </div>
-)
+const Checkbox = (props) => {
+  const secondaryTextClass = classnames(style.secondaryText, {
+    [style.error]: props.error,
+    [style.success]: props.success,
+  })
+
+  return (
+    <div className={style.container}>
+      <input
+        type="checkbox"
+        name={props.name}
+        value={props.value}
+        id={props.value}
+        checked={props.checked}
+        onChange={props.onChange}
+        disabled={props.disabled}
+        className={style.checkbox}
+      />
+      <label
+        htmlFor={props.value}
+        className={style.label}
+      >
+        {props.label}
+      </label>
+
+      {(props.success || props.error) &&
+        <p className={secondaryTextClass}>
+          {props.success || props.error}
+        </p>
+      }
+    </div>
+  )
+}
 
 Checkbox.propTypes = {
   name: PropTypes.string.isRequired,

@@ -1,0 +1,66 @@
+.container {
+  position: relative;
+}
+
+.label {
+  cursor: pointer;
+  font-size: 14px;
+  color: #3b3b3b;
+}
+
+.label:before,
+.label:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.label:before {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: solid 1px #8e8e8e;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.checkbox {
+  outline: 0px;
+  margin-right: 16px;
+}
+
+.checkbox:checked + .label:before {
+  border: solid 1px #42aebb;
+}
+
+.checkbox:active ~ .container {
+  background-color: #d9f4ec;
+}
+
+.checkbox:checked + .label:after {
+  transform: rotate(-45deg);
+  color: #42aebb;
+  width: 19px;
+  height: 9px;
+  left: 4px;
+  top: 1px;
+  border: 2px solid #42aebb;
+  border-top-style: none;
+  border-right-style: none;
+}
+
+.secondaryText {
+  font-size: 12px;
+  position: absolute;
+  left: 33px;
+  top: 9px;
+}
+
+.error {
+  color: #d93e45;
+}
+
+.success {
+  color: #00a249;
+}
