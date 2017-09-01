@@ -15,8 +15,8 @@ const TextArea = (props) => {
     [style.focusedLabel]: props.value,
   })
 
-  const inputClass = classnames(style.input, {
-    [style.focusedInput]: props.value,
+  const textAreaClass = classnames(style.textarea, {
+    [style.focusedTextarea]: props.value,
   })
 
   return (
@@ -27,7 +27,7 @@ const TextArea = (props) => {
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}
-        className={inputClass}
+        className={textAreaClass}
       />
 
       <label
