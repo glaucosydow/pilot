@@ -1,0 +1,14 @@
+.secondaryText {
+  font-size: 12px;
+  position: relative;
+  left: 31px;
+  top: -13px;
+}
+
+.error {
+  color: #d93e45;
+}
+
+.success {
+  color: #00a249;
+}

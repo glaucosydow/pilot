@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import { partial } from 'ramda'
 import Checkbox from '../Checkbox'
+
+import style from './style.css'
 
 class CheckboxGroup extends React.Component {
   constructor (props) {
@@ -31,6 +34,11 @@ class CheckboxGroup extends React.Component {
   }
 
   render () {
+    const secondaryTextClass = classnames(style.secondaryText, {
+      [style.error]: this.props.error,
+      [style.success]: this.props.success,
+    })
+
     const checkboxes = this.props.options.map(({ value, label }) => (
       <Checkbox
         key={value}
@@ -48,7 +56,7 @@ class CheckboxGroup extends React.Component {
         {checkboxes}
 
         {(this.props.success || this.props.error) &&
-          <p>
+          <p className={secondaryTextClass}>
             {this.props.success || this.props.error}
           </p>
         }
