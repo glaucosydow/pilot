@@ -7,7 +7,7 @@
   border-radius: 3px;
   padding: 2px;
   align-items: center;
-  font-family: "Uni Neue";
+  font-family: var(--title-font-family);
 }
 
 .content {

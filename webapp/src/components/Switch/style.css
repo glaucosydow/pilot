@@ -7,7 +7,7 @@
   padding-left: calc(var(--switch-width) + var(--switch-label-left));
   height: var(--switch-height);
   align-items: center;
-  font-family: "Uni Neue";
+  font-family: var(--switch-label-font-family);
 }
 
 .switch:before,
