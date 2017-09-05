@@ -40,6 +40,8 @@ class Input extends React.Component {
 
     return (
       <div className={containerClass}>
+        {this.props.icon}
+
         { !this.props.multiline &&
           <input
             id={this.props.name}
@@ -103,6 +105,7 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   success: PropTypes.string,
+  icon: PropTypes.element,
 }
 
 Input.defaultProps = {
@@ -114,6 +117,7 @@ Input.defaultProps = {
   error: '',
   success: '',
   multiline: false,
+  icon: null,
 }
 
 export default Input

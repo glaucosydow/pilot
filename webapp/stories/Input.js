@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FaAndroid from 'react-icons/lib/fa/android'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
@@ -35,9 +36,40 @@ storiesOf('Input/Text field boxes', module)
       disabled
     />
   ))
-  .add('multiline', () => (
+  .add('multiline default', () => (
     <InputState boxed multiline />
   ))
+  .add('multiline error', () => (
+    <InputState boxed multiline error="Erro!" />
+  ))
+  .add('disabled with icon', () => (
+    <Input
+      name="name"
+      label="Digite seu nome"
+      placeholder="eaee"
+      boxed
+      disabled
+      icon={<FaAndroid />}
+    />
+  ))
+  .add('default with icon', () => (
+    <InputState boxed type="text" icon={<FaAndroid />} />
+  ))
+  .add('multiline disabled with icon', () => (
+    <Input
+      name="teste"
+      label="Fale tudo"
+      placeholder="eae"
+      boxed
+      multiline
+      disabled
+      icon={<FaAndroid />}
+    />
+  ))
+  .add('multiline with icon', () => (
+    <InputState boxed multiline icon={<FaAndroid />} />
+  ))
+
 
 
 class InputState extends React.Component {
@@ -60,6 +92,7 @@ class InputState extends React.Component {
         error={this.props.error}
         success={this.props.success}
         multiline={this.props.multiline}
+        icon={this.props.icon}
       />
     )
   }
@@ -94,6 +127,35 @@ storiesOf('Input/Text field', module)
     />
   ))
   .add('multiline', () => <InputState multiline placeholder="eae" />)
+  .add('multiline error', () => (
+    <InputState multiline error="Erro!" />
+  ))
+  .add('disabled with icon', () => (
+    <Input
+      name="name"
+      label="Digite seu nome"
+      placeholder="eaee"
+      disabled
+      icon={<FaAndroid />}
+    />
+  ))
+  .add('default with icon', () => (
+    <InputState type="text" icon={<FaAndroid />} />
+  ))
+  .add('multiline disabled with icon', () => (
+    <Input
+      name="teste"
+      label="Fale tudo"
+      placeholder="eae"
+      multiline
+      disabled
+      icon={<FaAndroid />}
+    />
+  ))
+  .add('multiline with icon', () => (
+    <InputState multiline icon={<FaAndroid />} />
+  ))
+
 
 storiesOf('Input/Password field', module)
   .add('disabled', () => (
