@@ -61,7 +61,7 @@
   color: #999;
   font-size: 14px;
   position: absolute;
-  top: 20px;
+  top: 42px;
   pointer-events: none;
   transition: 0.1s ease all;
 }
@@ -79,7 +79,7 @@
 .container > textarea:focus ~ label,
 .container > input:not(:placeholder-shown) ~ label,
 .container > input:focus ~ label {
-  top: -6px;
+  top: 21px;
   font-size: 12px;
   color: #42aebb;
 }
@@ -87,13 +87,17 @@
 .iconVisibility {
   position: absolute;
   bottom: 30px;
-  left: 190px;
+  right: 0px;
   display: none;
   cursor: pointer;
 }
 
-input:focus ~ .iconVisibility {
+.showIcon {
   display: block;
+}
+
+.hideIcon {
+  display: none;
 }
 
 .inputPassword {
@@ -115,13 +119,17 @@ input:focus ~ .iconVisibility {
   color: #c5c5c5;
 }
 
-.containerBoxes > textarea,
-.containerBoxes > input {
+.containerBoxes {
   width: 100%;
   height: 45px;
   background-color: #e9e9e9;
+}
+
+.containerBoxes > textarea,
+.containerBoxes > input {
   padding-left: 16px;
-  padding-bottom: 2px;
+  padding-bottom: 6px;
+  background: none;
 }
 
 .containerBoxes > textarea:disabled,
@@ -132,12 +140,16 @@ input:focus ~ .iconVisibility {
 .containerBoxes > label {
   color: #8e8e8e;
   padding-left: 16px;
-  top: 12px;
+  top: 37px;
 }
 
+.containerBoxes > textarea:not(:placeholder-shown) ~ label,
 .containerBoxes > textarea:focus ~ label,
+.containerBoxes > input:not(:placeholder-shown) ~ label,
 .containerBoxes > input:focus ~ label {
-  top: 4px;
+  top: 27px;
+  font-size: 12px;
+  color: #42aebb;
 }
 
 .containerBoxes > textarea:focus::placeholder,
@@ -150,12 +162,20 @@ input:focus ~ .iconVisibility {
   color: #d93e45;
 }
 
+.containerError > textarea:not(:placeholder-shown) ~ label,
+.containerError > textarea:placeholder-shown ~ label,
 .containerError > textarea:focus ~ label,
+.containerError > input:not(:placeholder-shown) ~ label,
+.containerError > input:placeholder-shown ~ label,
 .containerError > input:focus ~ label {
   color: #d93e45;
 }
 
+.containerError > textarea:not(:placeholder-shown),
+.containerError > textarea:placeholder-shown,
 .containerError > textarea,
+.containerError > input:not(:placeholder-shown),
+.containerError > input:placeholder-shown,
 .containerError > input {
   border-bottom: 2px solid #d93e45;
   caret-color: #d93e45;
@@ -165,12 +185,20 @@ input:focus ~ .iconVisibility {
   color: #00a249;
 }
 
+.containerSuccess > textarea:not(:placeholder-shown) ~ label,
 .containerSuccess > textarea:focus ~ label,
+.containerSuccess > textarea:placeholder-shown ~ label,
+.containerSuccess > input:not(:placeholder-shown) ~ label,
+.containerSuccess > input:placeholder-shown ~ label,
 .containerSuccess > input:focus ~ label {
   color: #00a249;
 }
 
+.containerSuccess > textarea:not(:placeholder-shown),
+.containerSuccess > textarea:placeholder-shown,
 .containerSuccess > textarea,
+.containerSuccess > input:not(:placeholder-shown),
+.containerSuccess > input:placeholder-shown,
 .containerSuccess > input {
   border-bottom: 2px solid #00a249;
   caret-color: #00a249;

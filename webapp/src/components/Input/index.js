@@ -32,6 +32,11 @@ class Input extends React.Component {
       [style.inputPassword]: this.props.value && this.props.type === 'password',
     })
 
+    const iconClass = classnames(style.iconVisibility, {
+      [style.showIcon]: this.props.value,
+      [style.hideIcon]: !this.props.value,
+    })
+
     return (
       <div className={containerClass}>
         { !this.props.multiline &&
@@ -54,14 +59,14 @@ class Input extends React.Component {
 
         {this.props.type === 'password' && this.state.type === 'password' &&
           <MdVisibility
-            className={style.iconVisibility}
+            className={iconClass}
             onClick={() => this.setState({ type: 'text' })}
           />
         }
 
         {this.props.type === 'password' && this.state.type === 'text' &&
           <MdVisibilityOff
-            className={style.iconVisibility}
+            className={iconClass}
             onClick={() => this.setState({ type: 'password' })}
           />
         }
