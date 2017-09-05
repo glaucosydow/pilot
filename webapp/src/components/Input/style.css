@@ -6,7 +6,7 @@
 
 .container {
   position: relative;
-  padding-top: 25px;
+  padding-top: 4px;
 }
 
 .container > textarea,
@@ -18,7 +18,7 @@
   border-bottom: 2px solid rgba(59, 59, 59, 0.25);
   border-radius: 3px;
   font-size: 14px;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
   padding-top: 16px;
   caret-color: #42aebb;
 }
@@ -61,7 +61,7 @@
   color: #999;
   font-size: 14px;
   position: absolute;
-  top: 42px;
+  top: 20px;
   pointer-events: none;
   transition: 0.1s ease all;
 }
@@ -79,7 +79,7 @@
 .container > textarea:focus ~ label,
 .container > input:not(:placeholder-shown) ~ label,
 .container > input:focus ~ label {
-  top: 21px;
+  top: 4px;
   font-size: 12px;
   color: #42aebb;
 }
@@ -140,14 +140,14 @@
 .containerBoxes > label {
   color: #8e8e8e;
   padding-left: 16px;
-  top: 37px;
+  top: 15px;
 }
 
 .containerBoxes > textarea:not(:placeholder-shown) ~ label,
 .containerBoxes > textarea:focus ~ label,
 .containerBoxes > input:not(:placeholder-shown) ~ label,
 .containerBoxes > input:focus ~ label {
-  top: 27px;
+  top: 4px;
   font-size: 12px;
   color: #42aebb;
 }

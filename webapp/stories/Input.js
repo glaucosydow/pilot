@@ -11,6 +11,7 @@ storiesOf('Input/Text field boxes', module)
     <Input
       name="name"
       label="Digite seu nome"
+      placeholder="eaee"
       boxed
       disabled
     />
@@ -28,6 +29,7 @@ storiesOf('Input/Text field boxes', module)
     <Input
       name="teste"
       label="Fale tudo"
+      placeholder="eae"
       boxed
       multiline
       disabled
