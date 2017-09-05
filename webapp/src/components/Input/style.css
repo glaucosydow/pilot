@@ -145,7 +145,7 @@
 .containerBoxes > label {
   color: #8e8e8e;
   padding-left: 16px;
-  top: 17px;
+  top: 14px;
 }
 
 .containerBoxes > textarea:not(:placeholder-shown) ~ label,
