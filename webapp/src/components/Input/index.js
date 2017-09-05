@@ -24,6 +24,7 @@ class Input extends React.Component {
   render () {
     const containerClass = classnames(style.container, {
       [style.containerBoxes]: this.props.boxed,
+      [style.containerBoxesTextarea]: this.props.boxed && this.props.multiline,
       [style.containerError]: this.props.error,
       [style.containerSuccess]: this.props.success,
     })
