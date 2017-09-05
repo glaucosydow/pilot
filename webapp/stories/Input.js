@@ -24,6 +24,18 @@ storiesOf('Input/Text field boxes', module)
   .add('success', () => (
     <InputState boxed type="text" success="Oloco meu" />
   ))
+  .add('multiline disabled', () => (
+    <Input
+      name="teste"
+      label="Fale tudo"
+      boxed
+      multiline
+      disabled
+    />
+  ))
+  .add('multiline', () => (
+    <InputState boxed multiline />
+  ))
 
 
 class InputState extends React.Component {
@@ -45,6 +57,7 @@ class InputState extends React.Component {
         hint={this.props.boxed ? '' : 'Texto secundario'}
         error={this.props.error}
         success={this.props.success}
+        multiline={this.props.multiline}
       />
     )
   }
@@ -57,6 +70,7 @@ storiesOf('Input/Text field', module)
       label="Digite seu email"
       disabled
       hint="Texto secundário"
+      placeholder="eae"
     />
   ))
   .add('default', () => (
@@ -68,6 +82,16 @@ storiesOf('Input/Text field', module)
   .add('success', () => (
     <InputState type="text" success="Good jobi lirou frendi" />
   ))
+  .add('multiline disabled', () => (
+    <Input
+      name="teste"
+      label="Fale tudo"
+      multiline
+      placeholder="eae"
+      disabled
+    />
+  ))
+  .add('multiline', () => <InputState multiline placeholder="eae" />)
 
 storiesOf('Input/Password field', module)
   .add('disabled', () => (
@@ -76,6 +100,7 @@ storiesOf('Input/Password field', module)
       name="pass"
       label="Digite sua senha"
       disabled
+      placeholder="eae"
     />
   ))
   .add('default', () => (

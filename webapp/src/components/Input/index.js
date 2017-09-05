@@ -28,26 +28,29 @@ class Input extends React.Component {
       [style.containerSuccess]: this.props.success,
     })
 
-    const labelClass = classnames(style.label, {
-      [style.focusedLabel]: this.props.value,
-    })
-
-    const inputClass = classnames(style.input, {
-      [style.focusedInput]: this.props.value,
+    const inputClass = classnames({
       [style.inputPassword]: this.props.value && this.props.type === 'password',
     })
 
     return (
       <div className={containerClass}>
-        <input
-          id={this.props.name}
-          type={this.state.type}
-          disabled={this.props.disabled}
-          value={this.props.value}
-          onChange={this.props.onChange}
-          placeholder={this.props.placeholder}
-          className={inputClass}
-        />
+        { !this.props.multiline &&
+          <input
+            id={this.props.name}
+            type={this.state.type}
+            disabled={this.props.disabled}
+            value={this.props.value}
+            onChange={this.props.onChange}
+            placeholder={this.props.placeholder}
+            className={inputClass}
+          />
+        }
+
+        { this.props.multiline &&
+          <textarea
+            {...this.props}
+          />
+        }
 
         {this.props.type === 'password' && this.state.type === 'password' &&
           <MdVisibility
@@ -65,7 +68,6 @@ class Input extends React.Component {
 
         <label
           htmlFor={this.props.name}
-          className={labelClass}
         >
           {this.props.label}
         </label>
@@ -87,6 +89,7 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  multiline: PropTypes.bool,
   type: PropTypes.string,
   placeholder: PropTypes.string,
   boxed: PropTypes.bool,
@@ -104,6 +107,7 @@ Input.defaultProps = {
   disabled: false,
   error: '',
   success: '',
+  multiline: false,
 }
 
 export default Input
