@@ -49,11 +49,11 @@ storiesOf('Input/Text field boxes', module)
       placeholder="eaee"
       boxed
       disabled
-      icon={<FaAndroid />}
+      icon={<FaAndroid size={20} />}
     />
   ))
   .add('default with icon', () => (
-    <InputState boxed type="text" icon={<FaAndroid />} />
+    <InputState boxed type="text" icon={<FaAndroid size={20} />} />
   ))
   .add('multiline disabled with icon', () => (
     <Input
@@ -63,11 +63,11 @@ storiesOf('Input/Text field boxes', module)
       boxed
       multiline
       disabled
-      icon={<FaAndroid />}
+      icon={<FaAndroid size={20} />}
     />
   ))
   .add('multiline with icon', () => (
-    <InputState boxed multiline icon={<FaAndroid />} />
+    <InputState boxed multiline icon={<FaAndroid size={20} />} />
   ))
 
 
@@ -136,11 +136,11 @@ storiesOf('Input/Text field', module)
       label="Digite seu nome"
       placeholder="eaee"
       disabled
-      icon={<FaAndroid />}
+      icon={<FaAndroid size={20} />}
     />
   ))
   .add('default with icon', () => (
-    <InputState type="text" icon={<FaAndroid />} />
+    <InputState type="text" icon={<FaAndroid size={20} />} />
   ))
   .add('multiline disabled with icon', () => (
     <Input
@@ -149,11 +149,11 @@ storiesOf('Input/Text field', module)
       placeholder="eae"
       multiline
       disabled
-      icon={<FaAndroid />}
+      icon={<FaAndroid size={20} />}
     />
   ))
   .add('multiline with icon', () => (
-    <InputState multiline icon={<FaAndroid />} />
+    <InputState multiline icon={<FaAndroid size={20} />} />
   ))
 
 

@@ -24,7 +24,9 @@ class Input extends React.Component {
   render () {
     const containerClass = classnames(style.container, {
       [style.containerBoxes]: this.props.boxed,
-      [style.containerBoxesTextarea]: this.props.boxed && this.props.multiline,
+      [style.containerBoxesDisabled]: this.props.boxed && this.props.disabled,
+      [style.containerDisabled]: !this.props.boxed && this.props.disabled,
+      [style.containerTextarea]: this.props.multiline,
       [style.containerError]: this.props.error,
       [style.containerSuccess]: this.props.success,
     })
@@ -33,53 +35,66 @@ class Input extends React.Component {
       [style.inputPassword]: this.props.value && this.props.type === 'password',
     })
 
-    const iconClass = classnames(style.iconVisibility, {
+    const iconVisibilityClass = classnames(style.iconVisibility, {
       [style.showIcon]: this.props.value,
       [style.hideIcon]: !this.props.value,
     })
 
+    const iconClass = classnames(style.icon, {
+      [style.iconDisabled]: this.props.disabled,
+      [style.iconActive]: !this.props.disabled && this.props.value,
+      [style.iconInactive]: !this.props.disabled && !this.props.value,
+    })
+
     return (
-      <div className={containerClass}>
-        {this.props.icon}
-
-        { !this.props.multiline &&
-          <input
-            id={this.props.name}
-            type={this.state.type}
-            disabled={this.props.disabled}
-            value={this.props.value}
-            onChange={this.props.onChange}
-            placeholder={this.props.placeholder}
-            className={inputClass}
-          />
+      <div>
+        {this.props.icon &&
+          <div className={iconClass}>{this.props.icon}</div>
         }
+        <div className={containerClass}>
+          { !this.props.multiline &&
+            <input
+              id={this.props.name}
+              type={this.state.type}
+              disabled={this.props.disabled}
+              value={this.props.value}
+              onChange={this.props.onChange}
+              placeholder={this.props.placeholder}
+              className={inputClass}
+            />
+          }
 
-        { this.props.multiline &&
-          <textarea
-            {...this.props}
-          />
-        }
+          { this.props.multiline &&
+            <textarea
+              {...this.props}
+              rows="1"
+            />
+          }
 
-        {this.props.type === 'password' && this.state.type === 'password' &&
-          <MdVisibility
-            className={iconClass}
-            onClick={() => this.setState({ type: 'text' })}
-          />
-        }
+          {this.props.type === 'password' && this.state.type === 'password' &&
+            <MdVisibility
+              className={iconVisibilityClass}
+              onClick={() => this.setState({ type: 'text' })}
+            />
+          }
 
-        {this.props.type === 'password' && this.state.type === 'text' &&
-          <MdVisibilityOff
-            className={iconClass}
-            onClick={() => this.setState({ type: 'password' })}
-          />
-        }
+          {this.props.type === 'password' && this.state.type === 'text' &&
+            <MdVisibilityOff
+              className={iconVisibilityClass}
+              onClick={() => this.setState({ type: 'password' })}
+            />
+          }
 
-        <label
-          htmlFor={this.props.name}
-        >
-          {this.props.label}
-        </label>
+          <label
+            htmlFor={this.props.name}
+          >
+            {this.props.label}
+          </label>
 
+          {this.props.multiline &&
+            <div>{this.props.value}</div>
+          }
+        </div>
         {(this.props.hint || this.props.success || this.props.error) &&
           <p
             className={style.secondaryText}

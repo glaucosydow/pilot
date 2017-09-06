@@ -23,12 +23,27 @@
   caret-color: #42aebb;
 }
 
+.container > textarea {
+  resize: none;
+  z-index: 1;
+  position: absolute;
+  display: block;
+  height: calc(100% - 28px);
+  top: 23px;
+  overflow: hidden;
+  outline: none;
+}
+
 .container > textarea:disabled,
 .container > input:disabled,
 .container > textarea:disabled:not(:placeholder-shown),
 .container > input:disabled:not(:placeholder-shown) {
-  border-bottom: 1px dashed #c5c5c5;
+  border: none;
   background: none;
+}
+
+.containerDisabled {
+  border-bottom: 1px dashed #c5c5c5;
 }
 
 .container > textarea:disabled ~ label,
@@ -54,7 +69,6 @@
   opacity: 1;
   color: #8e8e8e;
   font-size: 14px;
-  line-height: 20px;
 }
 
 .container > label {
@@ -84,10 +98,26 @@
   color: #42aebb;
 }
 
+.icon {
+
+}
+
+.iconDisabled {
+  color: #c5c5c5;
+}
+
+.iconActive {
+  color: #3b3b3b;
+}
+
+.iconInactive {
+  color: #8e8e8e;
+}
+
 .iconVisibility {
   position: absolute;
-  bottom: 30px;
-  right: 0px;
+  bottom: 8px;
+  right: 8px;
   display: none;
   cursor: pointer;
 }
@@ -125,9 +155,19 @@
   background-color: #e9e9e9;
 }
 
-.containerBoxesTextarea {
+.containerTextarea {
   height: unset;
-  padding-top: 15px;
+  padding-top: 25px;
+}
+
+.containerTextarea > div:after {
+  content: ' ';
+}
+
+.containerTextarea > div {
+  white-space: pre-wrap;
+  visibility: hidden;
+  min-height: 25px;
 }
 
 .containerBoxes > textarea,
@@ -137,9 +177,13 @@
   background: none;
 }
 
-.containerBoxes > textarea:disabled,
-.containerBoxes > input:disabled {
+.containerBoxes > textarea {
+  padding-bottom: unset;
+}
+
+.containerBoxesDisabled {
   border: 1px dashed #c5c5c5;
+  border-radius: 3px;
 }
 
 .containerBoxes > label {
@@ -160,10 +204,9 @@
 .containerBoxes > textarea:focus::placeholder,
 .containerBoxes > input:focus::placeholder {
   opacity: 1;
-  line-height: 16px;
 }
 
-.containerError > .secondaryText {
+.containerError ~ .secondaryText {
   color: #d93e45;
 }
 
@@ -186,7 +229,7 @@
   caret-color: #d93e45;
 }
 
-.containerSuccess > .secondaryText {
+.containerSuccess ~ .secondaryText {
   color: #00a249;
 }
 
