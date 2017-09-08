@@ -1,0 +1,5 @@
+@import "../../styles/colors.css";
+
+:root {
+  --secondary-text-font-size: 12px;
+}
