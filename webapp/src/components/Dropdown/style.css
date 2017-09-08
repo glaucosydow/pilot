@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Uni Neue';
+  font-family: "Uni Neue";
   letter-spacing: 0.05em;
 }
 
@@ -42,7 +42,7 @@
   border-radius: 3px;
   background: #ffffff;
   display: none;
-  box-shadow: 0px 2px 3px 0 rgba(59, 59, 59, 0.25);
+  box-shadow: 0 2px 3px 0 rgba(59, 59, 59, 0.25);
 }
 
 .option {
@@ -106,7 +106,7 @@
 .arrow {
   position: absolute;
   cursor: pointer;
-  bottom: 0px;
+  bottom: 0;
   left: 129px;
 }
 

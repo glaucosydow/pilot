@@ -2,7 +2,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  font-family: 'Uni Neue';
+  font-family: "Uni Neue";
   letter-spacing: 0.05em;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .radio {
-	display: inline-flex;
+  display: inline-flex;
   flex-direction: column-reverse;
   align-items: center;
   padding-left: 1em;
@@ -84,9 +84,9 @@
 .label:before,
 .label:after {
   position: absolute;
-  content: '';
+  content: "";
   border-radius: 50%;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   transition-property: transform, border-color;
 }
 
