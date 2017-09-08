@@ -1,0 +1,27 @@
+@import "../../styles/colors.css";
+
+:root {
+  --color-disabled: #c5c5c5;
+
+  --radio-width: 60px;
+
+  --name-font-size: 14px;
+  --name-color: #3b3b3b;
+
+  --radio-box-border-color: #42aebb;
+
+  --label-height: 20px;
+  --label-width: 20px;
+  --label-margin-top: 0.5em;
+  --label-transition-time: 0.3s;
+
+  --radio-outside-circle-width: 20px;
+  --radio-outside-circle-height: 20px;
+  --radio-outside-circle-color: #8e8e8e;
+
+  --radio-inside-circle-width: 12px;
+  --radio-inside-circle-height: 12px;
+  --radio-inside-circle-color: #42aebb;
+
+  --secondary-text-font-size: 12px;
+}
