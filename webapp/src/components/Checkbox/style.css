@@ -41,7 +41,7 @@
 }
 
 .checkbox:checked + .label:before {
-  border: solid 1px #42aebb;
+  border: solid 1px var(--checkbox-box-border-color-checked);
 }
 
 .checkbox:active ~ .container {
@@ -49,28 +49,28 @@
 }
 
 .checkbox:checked + .label:after {
-  transform: rotate(-45deg);
-  color: #42aebb;
-  width: 19px;
-  height: 9px;
+  transform: rotate(var(--marker-rotation));
+  color: var(--marker-color);
+  width: var(--marker-width);
+  height: var(--marker-height);
   left: 4px;
   top: 1px;
-  border: 2px solid #42aebb;
+  border: 2px solid var(--marker-border-color);
   border-top-style: none;
   border-right-style: none;
 }
 
 .secondaryText {
-  font-size: 12px;
+  font-size: var(--secondary-text-font-size);
   position: absolute;
   left: 33px;
   top: 9px;
 }
 
 .error {
-  color: #d93e45;
+  color: var(--color-error);
 }
 
 .success {
-  color: #00a249;
+  color: var(--color-success);
 }

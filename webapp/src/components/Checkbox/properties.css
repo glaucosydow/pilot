@@ -1,3 +1,5 @@
+@import "../../styles/colors.css";
+
 :root {
   --label-font-size: 14px;
   --label-default-color: #3b3b3b;
@@ -8,7 +10,16 @@
   --checkbox-box-background-color: #ffffff;
   --checkbox-box-border-color: #8e8e8e;
   --checkbox-box-border-color-disabled: #c5c5c5;
+  --checkbox-box-border-color-checked: #42aebb;
   --checkbox-box-border-radius: 3px;
 
   --checkbox-margin-right: 16px;
+
+  --marker-rotation: -45deg;
+  --marker-color: #42aebb;
+  --marker-width: 19px;
+  --marker-height: 9px;
+  --marker-border-color: #42aebb;
+
+  --secondary-text-font-size: 12px;
 }

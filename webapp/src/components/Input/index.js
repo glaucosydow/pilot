@@ -92,11 +92,11 @@ class Input extends React.Component {
           </label>
 
           {this.props.multiline &&
-          <div
-            className={style.multilineText}
-          >
-            {this.props.value}
-          </div>
+            <div
+              className={style.multilineText}
+            >
+              {this.props.value}
+            </div>
           }
         </div>
         {(this.props.hint || this.props.success || this.props.error) &&
