@@ -1,3 +1,5 @@
+@import "./properties.css";
+
 * {
   box-sizing: border-box;
   font-family: "Uni Neue";
@@ -7,19 +9,19 @@
 .input {
   border: 0;
   background: transparent;
-  border-bottom: 2px solid rgba(59, 59, 59, 0.25);
-  border-radius: 3px;
+  border-bottom: 2px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
   outline: 0;
   display: block;
   text-align: left;
-  font-size: 14px;
-  width: 167px;
-  height: 37px;
+  font-size: var(--input-font-size);
+  width: 100%;
+  height: var(--input-height);
   cursor: pointer;
-  color: #3b3b3b;
+  color: var(--input-text-color);
   text-decoration: none;
   opacity: 1;
-  line-height: 42px;
+  line-height: var(--input-line-height);
 }
 
 .input > a {
@@ -28,7 +30,7 @@
 
 .buttonGroup {
   position: relative;
-  width: 167px;
+  width: 100%;
 }
 
 .dropdownMenu {
@@ -36,21 +38,21 @@
   top: -1.5em;
   right: 0;
   left: 0;
-  width: 180px;
+  width: 100%;
   list-style: none;
   text-align: left;
-  border-radius: 3px;
-  background: #ffffff;
+  border-radius: var(--dropdown-menu-border-radius);
+  background: var(--dropdown-menu-background);
   display: none;
-  box-shadow: 0 2px 3px 0 rgba(59, 59, 59, 0.25);
+  box-shadow: var(--dropdown-menu-box-shadow);
 }
 
 .option {
-  color: #3b3b3b;
-  min-height: 35px;
-  width: 180px;
-  line-height: 15px;
-  margin-left: -40px;
+  color: var(--option-color);
+  min-height: var(--option-min-height);
+  width: 100%;
+  line-height: var(--option-line-height);
+  margin-left: var(--option-margin-left);
   white-space: pre-line;
 }
 
@@ -62,21 +64,21 @@
 }
 
 .option:hover {
-  background-color: #e9e9e9;
+  background-color: var(--option-hover-background-color);
   cursor: pointer;
 }
 
 .disabledOption {
-  opacity: 0.6;
+  opacity: var(--disabled-option-opacity);
 }
 
 .disabledOption:hover {
-  background: none;
+  background: var(--disabled-option-background);
   cursor: not-allowed;
 }
 
 .isSelected {
-  color: #42aebb;
+  color: var(--option-selected-color);
 }
 
 .show {
@@ -88,16 +90,16 @@
 }
 
 .label {
-  color: #8e8e8e;
-  font-size: 12px;
+  color: var(--label-color);
+  font-size: var(--label-font-size);
   position: absolute;
   top: -10px;
 }
 
 .secondaryText {
-  height: 12px;
-  width: 167px;
-  font-size: 12px;
+  height: var(--secondary-text-height);
+  width: 100%;
+  font-size: var(--secondary-text-font-size);
   text-align: left;
   position: absolute;
   top: 27px;
@@ -107,39 +109,39 @@
   position: absolute;
   cursor: pointer;
   bottom: 0;
-  left: 129px;
+  right: 0;
 }
 
 .containerDisabled .input {
-  border-bottom: 1px dashed #c5c5c5;
-  color: #c5c5c5;
+  border-bottom: 1px dashed var(--color-disabled);
+  color: var(--color-disabled);
   cursor: not-allowed;
 }
 
 .containerDisabled .label {
-  color: #c5c5c5;
+  color: var(--color-disabled);
 }
 
 .containerError .input {
-  border-bottom: 2px solid #d93e45;
+  border-bottom: 2px solid var(--color-error);
 }
 
 .containerError .label {
-  color: #d93e45;
+  color: var(--color-error);
 }
 
 .containerError .secondaryText {
-  color: #d93e45;
+  color: var(--color-error);
 }
 
 .containerSuccess .input {
-  border-bottom: 2px solid #00a249;
+  border-bottom: 2px solid var(--color-success);
 }
 
 .containerSuccess .label {
-  color: #00a249;
+  color: var(--color-success);
 }
 
 .containerSuccess .secondaryText {
-  color: #00a249;
+  color: var(--color-success);
 }
