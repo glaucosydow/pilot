@@ -161,7 +161,7 @@
 }
 
 .containerTextarea > div {
-  white-space: "pre-wrap";
+  white-space: pre-wrap;
   visibility: hidden;
   min-height: 25px;
 }
