@@ -1,14 +1,16 @@
+@import "./properties.css";
+
 .secondaryText {
-  font-size: 12px;
+  font-size: var(--secondary-text-font-size);
   position: relative;
   left: 31px;
   top: -13px;
 }
 
 .error {
-  color: #d93e45;
+  color: var(--color-error);
 }
 
 .success {
-  color: #00a249;
+  color: var(--color-success);
 }
