@@ -1,0 +1,14 @@
+:root {
+  --label-font-size: 14px;
+  --label-default-color: #3b3b3b;
+  --label-disabled-color: #c5c5c5;
+
+  --checkbox-box-width: 20px;
+  --checkbox-box-height: 20px;
+  --checkbox-box-background-color: #ffffff;
+  --checkbox-box-border-color: #8e8e8e;
+  --checkbox-box-border-color-disabled: #c5c5c5;
+  --checkbox-box-border-radius: 3px;
+
+  --checkbox-margin-right: 16px;
+}

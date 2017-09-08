@@ -1,11 +1,13 @@
+@import "./properties.css";
+
 .container {
   position: relative;
 }
 
 .label {
   cursor: pointer;
-  font-size: 14px;
-  color: #3b3b3b;
+  font-size: var(--label-font-size);
+  color: var(--label-default-color);
 }
 
 .label:before,
@@ -17,25 +19,25 @@
 }
 
 .label:before {
-  width: 20px;
-  height: 20px;
-  background: #ffffff;
-  border: solid 1px #8e8e8e;
-  border-radius: 3px;
+  width: var(--checkbox-box-width);
+  height: var(--checkbox-box-height);
+  background: var(--checkbox-box-background-color);
+  border: solid 1px var(--checkbox-box-border-color);
+  border-radius: var(--checkbox-box-border-radius);
   cursor: pointer;
 }
 
 .disabled > .label:before {
-  border: 1px solid #cccccc;
+  border: 1px solid var(--checkbox-box-border-color-disabled);
 }
 
 .disabled > .label {
-  color: #c5c5c5;
+  color: var(--label-disabled-color);
 }
 
 .checkbox {
   outline: 0;
-  margin-right: 16px;
+  margin-right: var(--checkbox-margin-right);
 }
 
 .checkbox:checked + .label:before {
