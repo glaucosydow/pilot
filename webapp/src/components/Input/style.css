@@ -24,12 +24,13 @@
 }
 
 .container > textarea {
+  padding: unset;
+  margin: unset;
   resize: none;
   z-index: 1;
   position: absolute;
   display: block;
-  height: calc(100% - 28px);
-  top: 23px;
+  height: calc(100% - 25px);
   overflow: hidden;
   outline: none;
 }
@@ -164,6 +165,15 @@
   white-space: pre-wrap;
   visibility: hidden;
   min-height: 25px;
+  word-wrap: break-word;
+  padding-left: 16px;
+}
+
+.containerTextarea > div,
+.containerTextarea > textarea {
+  font-size: 20px;
+  line-height: 20px;
+  padding-bottom: 6px;
 }
 
 .multilineText {
@@ -175,10 +185,6 @@
   padding-left: 16px;
   padding-bottom: 6px;
   background: none;
-}
-
-.containerBoxes > textarea {
-  padding-bottom: unset;
 }
 
 .containerBoxesDisabled {
