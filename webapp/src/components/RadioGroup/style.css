@@ -1,3 +1,5 @@
+@import "./properties.css";
+
 *,
 *:before,
 *:after {
@@ -11,39 +13,39 @@
 }
 
 .containerDisabled .name {
-  color: #c5c5c5;
+  color: var(--color-disabled);
 }
 
 .containerDisabled .label {
-  color: #c5c5c5;
+  color: var(--color-disabled);
 }
 
 .containerDisabled .input:checked + .label:before {
-  border-color: #c5c5c5;
+  border-color: var(--color-disabled);
 }
 
 .containerDisabled .label:before {
-  border-color: #c5c5c5;
+  border-color: var(--color-disabled);
 }
 
 .containerDisabled .label:after {
-  background: #c5c5c5;
+  background: var(--color-disabled);
 }
 
 .containerError .name {
-  color: #d93e45;
+  color: var(--color-error);
 }
 
 .containerSuccess .input:checked + .label:before {
-  border-color: #00a249;
+  border-color: var(--color-success);
 }
 
 .containerSuccess .input:checked + .label:after {
-  background: #00a249;
+  background: var(--color-success);
 }
 
 .containerSuccess .input:checked ~ .name {
-  color: #00a249;
+  color: var(--color-success);
 }
 
 .radio {
@@ -53,12 +55,12 @@
   padding-left: 1em;
   padding-right: 1em;
   cursor: pointer;
-  width: 60px;
+  width: var(--radio-width);
 }
 
 .name {
-  font-size: 14px;
-  color: #3b3b3b;
+  font-size: var(--name-font-size);
+  color: var(--name-color);
 }
 
 .input {
@@ -66,7 +68,7 @@
 }
 
 .input:checked + .label:before {
-  border-color: #42aebb;
+  border-color: var(--radio-box-border-color);
 }
 
 .input:checked + .label:after {
@@ -75,9 +77,9 @@
 
 .label {
   display: inline-block;
-  height: 20px;
-  width: 20px;
-  margin-top: 0.5em;
+  height: var(--label-height);
+  width: var(--label-width);
+  margin-top: var(--label-margin-top);
   position: relative;
 }
 
@@ -86,38 +88,38 @@
   position: absolute;
   content: "";
   border-radius: 50%;
-  transition: all 0.3s ease;
+  transition: all var(--label-transition-time) ease;
   transition-property: transform, border-color;
 }
 
 .label:before {
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #8e8e8e;
+  width: var(--radio-outside-circle-width);
+  height: var(--radio-outside-circle-height);
+  border: 2px solid var(--radio-outside-circle-color);
 }
 
 .label:after {
   top: 4px;
   left: 4px;
-  width: 12px;
-  height: 12px;
+  width: var(--radio-inside-circle-width);
+  height: var(--radio-inside-circle-height);
   transform: scale(0);
-  background: #42aebb;
+  background: var(--radio-inside-circle-color);
 }
 
 .secondaryText {
   position: relative;
   top: -10px;
   left: 10px;
-  font-size: 12px;
+  font-size: var(--secondary-text-font-size);
 }
 
 .containerError .secondaryText {
-  color: #d93e45;
+  color: var(--color-error);
 }
 
 .containerSuccess .secondaryText {
-  color: #00a249;
+  color: var(--color-success);
 }
